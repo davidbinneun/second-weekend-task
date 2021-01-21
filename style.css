@@ -1,9 +1,9 @@
 body {
-    background: rgb(36,217,224);
-    background: radial-gradient(circle, rgba(36,217,224,1) 27%, rgba(0,131,152,1) 100%);
+    background: rgb(203,203,203);
+    background: radial-gradient(circle, rgba(203,203,203,1) 0%, rgba(148,148,148,1) 100%);
     margin: 0 auto;
     font-family: Helvetica;
-    font-size: 16px;
+    font-size: 1rem;
     flex-direction: column;
 }
 
@@ -32,32 +32,82 @@ th {
 }
 
 tr {
-    width:100%;
+    width: 100%;
 }
 
 td {
-    background: white;
+    background: rgb(231, 231, 231);
     padding: 0.5% 1%;
     vertical-align: middle;
 }
 
+#title {
+    font-weight: bold;
+}
+
 .centertd {
     text-align: center;
+    background-color: white;
 }
 
 .greentd {
     background: green;
+    background: linear-gradient(-45deg, #3ee039, #0c6f2e);
+    background-size: 150% 150%;
+	animation: gradient 7s ease infinite;
     text-align: center;
 }
 
 .yellowtd {
     background: yellow;
+    background: linear-gradient(-45deg, #ffe900, #dea028);
+    background-size: 200% 200%;
+	animation: gradient 6s ease infinite;
     text-align: center;
 }
 
 .redtd {
     background: red;
+    background: linear-gradient(-45deg, #c40000, #710101);
+    background-size: 200% 200%;
+	animation: gradient 5s ease infinite;
     text-align: center;
+}
+
+.lightbluetd {
+    background: lightblue;
+    background: linear-gradient(-45deg, #00bfff, #7af2ff);
+    background-size: 100% 100%;
+	animation: gradient 7s ease infinite;
+    text-align: center;
+}
+
+.bluetd {
+    background: blue;
+    background: linear-gradient(-45deg, #0050ff, #003e95);
+    background-size: 100% 100%;
+	animation: gradient 6s ease infinite;
+    text-align: center;
+}
+
+.darkbluetd {
+    background: darkblue;
+    background: linear-gradient(-45deg, #0f3fa7, #03003d);
+    background-size: 100% 100%;
+	animation: gradient 5s ease infinite;
+    text-align: center;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 img {

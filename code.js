@@ -7,7 +7,7 @@ class Album {
         this.criticScore = criticScore; // Critic Score
         this.userScore = userScore; // User Score
         this.daysWaited = Math.floor((this.release - this.announcement) / (1000*60*60*24)); // Days waited from announcement to release
-        this.scoreDiff = Math.abs(criticScore - userScore); // Difference between critic score and user score
+        this.scoreDiff = Math.floor(Math.abs(100 - ((criticScore / userScore) * 100))); // Difference between critic score and user score
     }
 }
 
@@ -37,19 +37,19 @@ document.write('<h1>KANYE WEST ALBUMS</h1>');
 // HTML Table start
 document.write('<div><table>');
 // Table Headers
-document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Released</th> <th>Days Waited</th> <th>Critic Score</th> <th>User Score</th> <th>Score Difference</th></tr>');
+document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Release</th> <th>Days Waited</th> <th>Critic Score</th> <th>User Score</th> <th>Score Difference</th></tr>');
 
 // Creating table rows with data
 for (album of albums){
     document.write('<tr>' + 
-    '<td id="cover"><img src=./covers/' + album.cover + '.jpg><img></td>' +
+    '<td id="cover" class="centertd"><img src="./covers/' + album.cover + '.jpg"></td>' +
     '<td id="title">' + album.title + '</td>' +
     '<td id="announcement" class="centertd">' + simplifyDate(album.announcement) + '</td>' +
     '<td id="release" class="centertd">' + simplifyDate(album.release) + '</td>' +
     '<td id="daysWaited" class=' + daysWaitedColor(album.daysWaited) + '>' + album.daysWaited + '</td>' +
     '<td id="criticScore" class="centertd">' + album.criticScore + '</td>' +
     '<td id="userScore" class="centertd">' + album.userScore + '</td>' +
-    '<td id="scoreDiff" class=' + scoreDiffColor(album.scoreDiff) + '>' + album.scoreDiff + '</tr>');
+    '<td id="scoreDiff" class=' + scoreDiffColor(album.scoreDiff) + '>' + album.scoreDiff + '%</tr>');
 }
 
 // HTML Table end
@@ -70,14 +70,16 @@ function simplifyDate(date){
 
 // Receives days waited from announcement to release, returns a string (which is the class for the table cell)
 function daysWaitedColor(days){
-    if (days < 100) return "greentd";
+    if (days < 10) return "greentd";
+    else if (days < 100) return "centertd";
     else if (days < 200) return "yellowtd";
     else return "redtd";
 }
 
 // Receives difference betwen critic and user score, returns a string (which is the class for the table cell)
 function scoreDiffColor(diff){
-    if (diff < 3) return "greentd";
-    else if (diff < 10) return "yellowtd";
-    else return "redtd";
+    if (diff < 3) return "centertd";
+    else if (diff < 5) return "lightbluetd";
+    else if (diff < 10) return "bluetd";
+    else return "darkbluetd";
 }
