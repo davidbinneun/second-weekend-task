@@ -4,18 +4,31 @@ body {
     margin: 0 auto;
     font-family: Helvetica;
     font-size: 16px;
+    flex-direction: column;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 table {
-    width: 100%;
     display: table;
     table-layout: auto;
+    width: 90%;
 }
 
 th {
     background: black;
     padding: 0.5% 1%;
     color: white;
+    vertical-align: middle;
 }
 
 tr {
@@ -25,6 +38,26 @@ tr {
 td {
     background: white;
     padding: 0.5% 1%;
+    vertical-align: middle;
+}
+
+.centertd {
+    text-align: center;
+}
+
+.greentd {
+    background: green;
+    text-align: center;
+}
+
+.yellowtd {
+    background: yellow;
+    text-align: center;
+}
+
+.redtd {
+    background: red;
+    text-align: center;
 }
 
 img {
