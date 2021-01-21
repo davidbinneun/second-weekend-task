@@ -42,14 +42,14 @@ document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Rel
 // Creating table rows with data
 for (album of albums){
     document.write('<tr>' + 
-    '<td class="centertd"><img src="./covers/' + album.cover + '.jpg"></td>' +
-    '<td class="title">' + album.title + '</td>' +
-    '<td class="centertd">' + simplifyDate(album.announcement) + '</td>' +
-    '<td class="centertd">' + simplifyDate(album.release) + '</td>' +
-    '<td class=' + daysWaitedColor(album.daysWaited) + '>' + album.daysWaited + '</td>' +
-    '<td class="centertd">' + album.criticScore + '</td>' +
-    '<td class="centertd">' + album.userScore + '</td>' +
-    '<td class=' + scoreDiffColor(album.scoreDiff) + '>' + album.scoreDiff + '%</tr>');
+    `<td class="centertd"><img src="./covers/${album.cover}.jpg"></td>` +
+    `<td class="title">${album.title}</td>` +
+    `<td class="centertd">${simplifyDate(album.announcement)}</td>` +
+    `<td class="centertd">${simplifyDate(album.release)}</td>` +
+    `<td class=${daysWaitedColor(album.daysWaited)}>` + album.daysWaited + '</td>' +
+    `<td class="centertd">${album.criticScore}</td>` +
+    `<td class="centertd">${album.userScore}</td>` +
+    `<td class=${scoreDiffColor(album.scoreDiff)}>` + album.scoreDiff + '%</tr>');
 }
 
 // HTML Table end
@@ -64,7 +64,7 @@ function simplifyDate(date){
     let month = date.getUTCMonth() + 1; // months from 1-12
     let day = date.getUTCDate();
     let year = date.getUTCFullYear();
- 
+
     return day + "/" + month + "/" + year;
 }
 
