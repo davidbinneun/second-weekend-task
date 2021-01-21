@@ -15,7 +15,7 @@ class Album {
 Filling the array with album data
 */
 
-let albums = []
+let albums = [];
 
 albums.push(new Album('The College Dropout', 'tcd', 'October 23, 2002', 'February 10, 2004', 87, 83));
 albums.push(new Album('Late Registration', 'lr', 'April 20, 2005', 'August 30, 2005', 85, 84));
@@ -42,14 +42,14 @@ document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Rel
 // Creating table rows with data
 for (album of albums){
     document.write('<tr>' + 
-    '<td id="cover" class="centertd"><img src="./covers/' + album.cover + '.jpg"></td>' +
-    '<td id="title">' + album.title + '</td>' +
-    '<td id="announcement" class="centertd">' + simplifyDate(album.announcement) + '</td>' +
-    '<td id="release" class="centertd">' + simplifyDate(album.release) + '</td>' +
-    '<td id="daysWaited" class=' + daysWaitedColor(album.daysWaited) + '>' + album.daysWaited + '</td>' +
-    '<td id="criticScore" class="centertd">' + album.criticScore + '</td>' +
-    '<td id="userScore" class="centertd">' + album.userScore + '</td>' +
-    '<td id="scoreDiff" class=' + scoreDiffColor(album.scoreDiff) + '>' + album.scoreDiff + '%</tr>');
+    '<td class="centertd"><img src="./covers/' + album.cover + '.jpg"></td>' +
+    '<td class="title">' + album.title + '</td>' +
+    '<td class="centertd">' + simplifyDate(album.announcement) + '</td>' +
+    '<td class="centertd">' + simplifyDate(album.release) + '</td>' +
+    '<td class=' + daysWaitedColor(album.daysWaited) + '>' + album.daysWaited + '</td>' +
+    '<td class="centertd">' + album.criticScore + '</td>' +
+    '<td class="centertd">' + album.userScore + '</td>' +
+    '<td class=' + scoreDiffColor(album.scoreDiff) + '>' + album.scoreDiff + '%</tr>');
 }
 
 // HTML Table end

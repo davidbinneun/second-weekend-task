@@ -3,7 +3,6 @@ body {
     background: radial-gradient(circle, rgba(203,203,203,1) 0%, rgba(148,148,148,1) 100%);
     margin: 0 auto;
     font-family: Helvetica;
-    font-size: 1rem;
     flex-direction: column;
 }
 
@@ -41,7 +40,7 @@ td {
     vertical-align: middle;
 }
 
-#title {
+.title {
     font-weight: bold;
 }
 
