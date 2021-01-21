@@ -1,0 +1,35 @@
+body {
+    background: rgb(36,217,224);
+    background: radial-gradient(circle, rgba(36,217,224,1) 27%, rgba(0,131,152,1) 100%);
+    margin: 0 auto;
+    font-family: Helvetica;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    display: table;
+    table-layout: auto;
+}
+
+th {
+    background: black;
+    padding: 0.5% 1%;
+    color: white;
+}
+
+tr {
+    width:100%;
+}
+
+td {
+    background: white;
+    padding: 0.5% 1%;
+}
+
+img {
+    width: 50px;
+}
+
+
+  
