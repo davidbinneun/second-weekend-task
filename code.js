@@ -32,7 +32,7 @@ albums.push(new Album('Kids See Ghosts', 'ksg', 'June 5, 2018', 'June 8, 2018', 
 Constructing the HTML Page
 */
 
-document.write('<h1>KANYE WEST ALBUMS</h1>');
+document.write('<h1>Kanye West - Album Recap</h1>');
 
 // HTML Table start
 document.write('<div><table>');

@@ -51,7 +51,7 @@ td {
 
 .greentd {
     background: green;
-    background: linear-gradient(-45deg, #3ee039, #0c6f2e);
+    background: linear-gradient(-45deg, #3ee039, #0c6f2e, #074e20,  #053a18 );
     background-size: 150% 150%;
 	animation: gradient 7s ease infinite;
     text-align: center;
@@ -59,7 +59,7 @@ td {
 
 .yellowtd {
     background: yellow;
-    background: linear-gradient(-45deg, #ffe900, #dea028);
+    background: linear-gradient(-45deg, #fffc5d, #ffe900, #dea028, #ff7b00);
     background-size: 200% 200%;
 	animation: gradient 6s ease infinite;
     text-align: center;
@@ -67,7 +67,7 @@ td {
 
 .redtd {
     background: red;
-    background: linear-gradient(-45deg, #c40000, #710101);
+    background: linear-gradient(-45deg, #ff0000, #c40000, #710101, #580000);
     background-size: 200% 200%;
 	animation: gradient 5s ease infinite;
     text-align: center;
@@ -76,24 +76,24 @@ td {
 .lightbluetd {
     background: lightblue;
     background: linear-gradient(-45deg, #00bfff, #7af2ff);
-    background-size: 100% 100%;
-	animation: gradient 7s ease infinite;
+    background-size: 200% 200%;
+	animation: gradient 3s ease infinite;
     text-align: center;
 }
 
 .bluetd {
     background: blue;
     background: linear-gradient(-45deg, #0050ff, #003e95);
-    background-size: 100% 100%;
-	animation: gradient 6s ease infinite;
+    background-size: 200% 200%;
+	animation: gradient 3.5s ease infinite;
     text-align: center;
 }
 
 .darkbluetd {
     background: darkblue;
     background: linear-gradient(-45deg, #0f3fa7, #03003d);
-    background-size: 100% 100%;
-	animation: gradient 5s ease infinite;
+    background-size: 200% 200%;
+	animation: gradient 4s ease infinite;
     text-align: center;
 }
 
