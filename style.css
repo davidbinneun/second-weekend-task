@@ -51,7 +51,7 @@ td {
 
 .greentd {
     background: green;
-    background: linear-gradient(-45deg, #3ee039, #0c6f2e, #074e20,  #053a18 );
+    background: linear-gradient(-45deg, #3ee039, #0c6f2e, #0a4e22,  #053a18 );
     background-size: 150% 150%;
 	animation: gradient 7s ease infinite;
     text-align: center;
