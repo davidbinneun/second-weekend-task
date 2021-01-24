@@ -1,12 +1,12 @@
 class Album {
     constructor(title, cover, announcement, release, criticScore, userScore){
-        this.title = title; // Album title
         this.cover = cover; // Album cover 
+        this.title = title; // Album title
         this.announcement = new Date(announcement); // Announcement date of the album
         this.release = new Date(release); // Release date of the album
+        this.daysWaited = Math.floor((this.release - this.announcement) / (1000*60*60*24)); // Days waited from announcement to release
         this.criticScore = criticScore; // Critic Score
         this.userScore = userScore; // User Score
-        this.daysWaited = Math.floor((this.release - this.announcement) / (1000*60*60*24)); // Days waited from announcement to release
         this.scoreDiff = Math.floor(Math.abs(100 - ((criticScore / userScore) * 100))); // Difference between critic score and user score
     }
 }
@@ -32,33 +32,67 @@ albums.push(new Album('Kids See Ghosts', 'ksg', 'June 5, 2018', 'June 8, 2018', 
 Constructing the HTML Page
 */
 
-var myStyle = document.createElement("H1");
-var myText = document.createTextNode(prompt("This is an example of text written in H1"));
-h.appendChild(myText);
-document.body.appendChild(myStyle);              
+// Page title
+let title = document.createElement("h1");
+let titleText = document.createTextNode("Kanye West - Album Recap (no document.write)"); 
+title.appendChild(titleText); 
+document.body.appendChild(title);
 
-// document.write('<h1>Kanye West - Album Recap</h1>');
+// Creating the main div and the table inside of it
+let mainDiv = document.createElement("div");
+document.body.appendChild(mainDiv);
+let tbl = document.createElement("table");
+let tblBody = document.createElement("tbody");
 
-// // HTML Table start
-// document.write('<div><table>');
-// // Table Headers
-// document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Release</th> <th>Days Waited</th> <th>Critic Score</th> <th>User Score</th> <th>Score Difference</th></tr>');
 
-// // Creating table rows with data
-// for (album of albums){
-//     document.write('<tr>' + 
-//     `<td class="centertd"><img src="./covers/${album.cover}.jpg"></td>` +
-//     `<td class="title">${album.title}</td>` +
-//     `<td class="centertd">${simplifyDate(album.announcement)}</td>` +
-//     `<td class="centertd">${simplifyDate(album.release)}</td>` +
-//     `<td class=${daysWaitedColor(album.daysWaited)}>` + album.daysWaited + '</td>' +
-//     `<td class="centertd">${album.criticScore}</td>` +
-//     `<td class="centertd">${album.userScore}</td>` +
-//     `<td class=${scoreDiffColor(album.scoreDiff)}>` + album.scoreDiff + '%</tr>');
-// }
+// Inserting the table headers to the table
+tableHeaders = ['Cover', 'Title', 'Announcement', 'Release', 'Days Waited', 'Critic Score', 'User Score', 'Score Difference'];
+let row = document.createElement("tr");
+for (header of tableHeaders) {
+    let cell = document.createElement("th");
+    let cellText = document.createTextNode(header);
+    cell.appendChild(cellText);
+    row.appendChild(cell);
+}
+tblBody.appendChild(row);
 
-// // HTML Table end
-// document.write('</table></div>');
+// Inserting the values to the table
+for (album of albums) { // Goes through all the album objects
+    let row = document.createElement("tr"); // Creates new row
+
+    for (property in album) { // Goes through the properties of the album
+        let cell = document.createElement("td");
+        cell.classList.add('centertd'); // Basic style
+
+        if (property === 'cover'){ // Inserts cover photo to cell
+                let image = document.createElement('img');
+                image.src = './covers/' + album[property] + '.jpg';
+                cell.appendChild(image);
+        } else { // Inserts text to cell
+            if (property === 'announcement' || property === 'release'){ // Inserts date object in a readable format
+                let cellText = document.createTextNode(simplifyDate(album[property])); 
+                cell.appendChild(cellText);
+            } else { // Inserts regular text
+                let cellText = document.createTextNode(album[property]);
+                cell.appendChild(cellText);
+            }
+        }
+
+        // Different style for special cells
+        if (property === 'daysWaited')cell.classList.add(daysWaitedColor(album[property])); // Different style for daysWaited cell
+
+        if (property === 'scoreDiff') cell.classList.add(scoreDiffColor(album[property])); // Different style for scoreDiff cell
+
+        if (property === 'title')  cell.classList.remove('centertd'); // Different style for title cell
+
+        row.appendChild(cell); // Inserts the cell into the row
+    }
+  
+    tblBody.appendChild(row); // Inserts the row into the table body
+}
+  
+tbl.appendChild(tblBody); // Inserts the table body into the table
+mainDiv.appendChild(tbl); // Inserts the table into the main div
 
 /*
 Functions
