@@ -32,28 +32,33 @@ albums.push(new Album('Kids See Ghosts', 'ksg', 'June 5, 2018', 'June 8, 2018', 
 Constructing the HTML Page
 */
 
-document.write('<h1>Kanye West - Album Recap</h1>');
+var myStyle = document.createElement("H1");
+var myText = document.createTextNode(prompt("This is an example of text written in H1"));
+h.appendChild(myText);
+document.body.appendChild(myStyle);              
 
-// HTML Table start
-document.write('<div><table>');
-// Table Headers
-document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Release</th> <th>Days Waited</th> <th>Critic Score</th> <th>User Score</th> <th>Score Difference</th></tr>');
+// document.write('<h1>Kanye West - Album Recap</h1>');
 
-// Creating table rows with data
-for (album of albums){
-    document.write('<tr>' + 
-    `<td class="centertd"><img src="./covers/${album.cover}.jpg"></td>` +
-    `<td class="title">${album.title}</td>` +
-    `<td class="centertd">${simplifyDate(album.announcement)}</td>` +
-    `<td class="centertd">${simplifyDate(album.release)}</td>` +
-    `<td class=${daysWaitedColor(album.daysWaited)}>` + album.daysWaited + '</td>' +
-    `<td class="centertd">${album.criticScore}</td>` +
-    `<td class="centertd">${album.userScore}</td>` +
-    `<td class=${scoreDiffColor(album.scoreDiff)}>` + album.scoreDiff + '%</tr>');
-}
+// // HTML Table start
+// document.write('<div><table>');
+// // Table Headers
+// document.write('<tr> <th>Cover</th> <th>Title</th> <th>Announcement</th> <th>Release</th> <th>Days Waited</th> <th>Critic Score</th> <th>User Score</th> <th>Score Difference</th></tr>');
 
-// HTML Table end
-document.write('</table></div>');
+// // Creating table rows with data
+// for (album of albums){
+//     document.write('<tr>' + 
+//     `<td class="centertd"><img src="./covers/${album.cover}.jpg"></td>` +
+//     `<td class="title">${album.title}</td>` +
+//     `<td class="centertd">${simplifyDate(album.announcement)}</td>` +
+//     `<td class="centertd">${simplifyDate(album.release)}</td>` +
+//     `<td class=${daysWaitedColor(album.daysWaited)}>` + album.daysWaited + '</td>' +
+//     `<td class="centertd">${album.criticScore}</td>` +
+//     `<td class="centertd">${album.userScore}</td>` +
+//     `<td class=${scoreDiffColor(album.scoreDiff)}>` + album.scoreDiff + '%</tr>');
+// }
+
+// // HTML Table end
+// document.write('</table></div>');
 
 /*
 Functions
